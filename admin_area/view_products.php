@@ -1,3 +1,14 @@
+<?php
+$con = mysqli_connect("localhost", "root", "", "mystore");
+
+
+// Vérifier la connexion
+if (mysqli_connect_errno()) {
+    echo "Échec de la connexion à la base de données: " . mysqli_connect_error();
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +33,8 @@
         </thead>
         <tbody class="bg-secondary text-light">
             <?php
-            $get_products="Select * from 'products'";
-            $result=mysqli_query($con, $get_products);
+            $get_products="Select * from `products`";
+            $result=mysqli_query($con,$get_products);
             $number=0;
             while($row=mysqli_fetch_assoc($result)){
                 $product_id=$row['product_id'];
@@ -46,7 +57,7 @@
             
             ?></td>
             <td><?php   echo $status;?></td>
-            <td><a href='' class='text-light'><i class='fa-solid fa-pen-to-square'></i></a></td>
+            <td><a href='index.php?edit_products' class='text-light'><i class='fa-solid fa-pen-to-square'></i></a></td>
             <td><a href='' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
             </tr>
             <?php
