@@ -1,0 +1,11 @@
+.admin_image {
+    width: 100px;
+    object-fit: contain;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+}
+body {
+    overflow-x:hidden ;
+}
