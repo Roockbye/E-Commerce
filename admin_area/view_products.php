@@ -1,14 +1,3 @@
-<?php
-$con = mysqli_connect("localhost", "root", "", "mystore");
-
-
-// Vérifier la connexion
-if (mysqli_connect_errno()) {
-    echo "Échec de la connexion à la base de données: " . mysqli_connect_error();
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
