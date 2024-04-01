@@ -56,6 +56,17 @@ include('../functions/common_function.php');
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-12 bg-secondary p-1 d-flex align-items-center">
+                <div class="p-3">
+                </div>
+                <div class="button text-center">
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="container my-3">
             <?php
             if(isset($_GET['insert_category'])){
