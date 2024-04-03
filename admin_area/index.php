@@ -45,9 +45,9 @@ include('../functions/common_function.php');
                     <button class="my-3"><a href="insert_product.php" class="nav-link text-light bg-info my-1">Insert Products</a></button>
                     <button><a href="index.php?view_products" class="nav-link text-light bg-info my-1">View products</a></button>
                     <button><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert Categories</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">View Categories</a></button>
+                    <button><a href="index.php?view_categories" class="nav-link text-light bg-info my-1">View Categories</a></button>
                     <button><a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">Insert Brands</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">View Brands</a></button>
+                    <button><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">View Brands</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">All Orders</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">All Payment</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">List users</a></button>
@@ -83,6 +83,18 @@ include('../functions/common_function.php');
             }
             if(isset($_GET['delete_product'])){
                 include('delete_product.php');
+            }
+            if(isset($_GET['view_categories'])){
+                include('view_categories.php');
+            }
+            if(isset($_GET['view_brands'])){
+                include('view_brands.php');
+            }
+            if(isset($_GET['edit_category'])){
+                include('edit_category.php');
+            }
+            if(isset($_GET['edit_brands'])){
+                include('edit_brands.php');
             }
             ?>
         </div>
