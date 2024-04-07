@@ -1,6 +1,7 @@
 <!-- connect file -->
 <?php
 include('./includes/connect.php');
+include('./functions/common_function.php');
 ?>
 
 <!DOCTYPE html>
@@ -79,94 +80,14 @@ include('./includes/connect.php');
             <p class="text-center">POPULAIRES ET RECOMMANDÉS</p>
         </nav>
 
-        <!-- third child -->
-        <div class="row">
+        <!-- fourth child -->
+        <div class="row px-1">
             <div class="col-md-10">
                 <!-- products -->
                 <div class="row">
-                    <div class="col-md-4 mb-2">
-                        <div class="card">
-                            <img src="./images/antomino.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Antomino</h5>
-                                <p class="card-text">
-                                Atomino sur Amiga est un jeu de réflexion dans lequel vous devez construire des molécules à l'aide des atomes qui vous sont proposés. Les molécules que vous devez faire ne sont pas forcément réalistes, mais les atomes requérant une double, triple voire quadruple liaison ne vous facilitent pas la tâche !
-                                </p>
-                                <a href="#" class="btn btn-outline-success">Ajouter au panier</a>
-                                <a href="#" class="btn btn-secondary">Voir plus</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-2">
-                        <div class="card">
-                            <img src="./images/darkman.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Darkman</h5>
-                                <p class="card-text">
-                                    Darkman sur Amiga est un jeu d'action/plates-formes tiré du film du même nom. Vous incarnez un super héros nommé Darkman et pouvez sauter, donner des coups de poing et de pied, ainsi que vous balancer à des cordes. Dans chaque niveau, notre ami doit battre le boss de fin pour accéder au niveau suivant.
-                                </p>
-                                <a href="#" class="btn btn-outline-success">Ajouter au panier</a>
-                                <a href="#" class="btn btn-secondary">Voir plus</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-2">
-                        <div class="card">
-                            <img src="./images/dukenukem.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Duke Nukem</h5>
-                                <p class="card-text">
-                                Duke Nukem est un jeu d'action sur PC. Etes-vous prêt à devenir le plus grand nettoyeur d'aliens ? Des extraterrestres assoiffés de sang ont atterri à Los Angeles, la situation est critique et la race humaine est en voie de disparition. Sortez vos calibres et préparez-vous à détruire de l'alien visqueux à coups de bottes ou d'armes en tout genre pour sauver l'humanité.
-                                </p>
-                                <a href="#" class="btn btn-outline-success">Ajouter au panier</a>
-                                <a href="#" class="btn btn-secondary">Voir plus</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-2">
-                        <div class="card">
-                            <img src="./images/faria.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Faria</h5>
-                                <p class="card-text">
-                                Faria est un jeu de rôle sur Nes faisant la part belle à l'action. Un puissant sorcier a enlevé la fille du roi. Vous avez voyagé depuis une terre lointaine pour répondre à l'appel du roi. Votre mission est bien évidemment de combattre le magicien et ses sbires pour sauver la princesse. Heureusement, plus de 70 items et armes différentes vous aideront dans cette quête.
-                                </p>
-                                <a href="#" class="btn btn-outline-success">Ajouter au panier</a>
-                                <a href="#" class="btn btn-secondary">Voir plus</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-2">
-                        <div class="card">
-                            <img src="./images/scrapyarddog.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Scrapyard Dog</h5>
-                                <p class="card-text">
-                                Scrapyard Dog est un jeu d'action/aventure sur Lynx. Un gang a décidé de kidnapper le chien de notre ami Louis pour demander une rançon. Ainsi, vous devez aider Louis à vaincre les divers dangers des 15 niveaux qui l'attendent pour retrouver son animal préféré.
-                                </p>
-                                <a href="#" class="btn btn-outline-success">Ajouter au panier</a>
-                                <a href="#" class="btn btn-secondary">Voir plus</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-2">
-                        <div class="card">
-                            <img src="./images/heimdall.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Heimdall</h5>
-                                <p class="card-text">
-                                Heimdall sur Amiga est un jeu de rôle basé sur la mythologie nordique. Selon la légende, Heimdall est un demi-dieu gardant le royaume d'Asgard de toute forme d'intrusion. Alors que le Ragnarok approche, les armes de défense ont été dérobées par Loki, le Dieu de la malice. Retrouvez les armes éparpillées sur trois continents et défendez le royaume coûte que coûte.
-                                </p>
-                                <a href="#" class="btn btn-outline-success">Ajouter au panier</a>
-                                <a href="#" class="btn btn-secondary">Voir plus</a>
-                            </div>
-                        </div>
-                    </div>
+    <?php
+    getproducts();
+    ?>
                 </div>
             </div>
 
@@ -178,19 +99,7 @@ include('./includes/connect.php');
                         <a href="#" class="nav-link"><h5>Plateformes</h5></a>
                     </li>
     <?php 
-    $select_brands="SELECT * FROM brands";
-    $result_brands=mysqli_query($con, $select_brands);
-    // $row_data=mysqli_fetch_assoc($result_brands);
-    // echo $row_data['brand_title'];        
-    
-    while($row_data=mysqli_fetch_assoc($result_brands)){
-        $brand_title=$row_data['brand_title'];
-        $brand_id=$row_data['brand_id'];
-
-        echo "  <li class='nav-item'>
-                <a href='index.php?brand=$brand_id' class='nav-link'>$brand_title</a>
-                </li> ";
-    }
+    getbrands();
     ?>
                 </ul>
                 <!-- categories to be displayed -->
@@ -199,19 +108,7 @@ include('./includes/connect.php');
                         <a href="#" class="nav-link"><h5>Catégories</h5></a>
                     </li>
     <?php 
-    $select_categories="SELECT * FROM categories";
-    $result_categories=mysqli_query($con, $select_categories);
-    // $row_data=mysqli_fetch_assoc($result_categories);
-    // echo $row_data['category_title'];        
-    
-    while($row_data=mysqli_fetch_assoc($result_categories)){
-        $category_title=$row_data['category_title'];
-        $category_id=$row_data['category_id'];
-
-        echo "  <li class='nav-item'>
-                <a href='index.php?category=$category_id' class='nav-link'>$category_title</a>
-                </li> ";
-    }
+    getcategories();
     ?>
                 </ul>
             </div>
