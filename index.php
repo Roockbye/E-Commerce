@@ -36,10 +36,10 @@ include('./functions/common_function.php');
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Jeux</a>
+                            <a class="nav-link" href="display_all.php">Jeux</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">S'enregister</a>
@@ -54,9 +54,10 @@ include('./functions/common_function.php');
                             <a class="nav-link" href="#">Prix Total :</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Rechercher</button>
+                    <form class="d-flex" action="search_product.php" method="GET">
+                        <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search" name="search_data">
+                        <!-- <button class="btn btn-outline-success" type="submit">Rechercher</button> -->
+                        <input type="submit" value="search"  class="btn btn-outline-success" name="search_data_product">
                     </form>
                 </div>
             </div>
@@ -87,6 +88,8 @@ include('./functions/common_function.php');
                 <div class="row">
     <?php
     getproducts();
+    get_unique_categories();
+    get_unique_brands();
     ?>
                 </div>
             </div>
@@ -115,9 +118,8 @@ include('./functions/common_function.php');
         </div>
 
         <!-- last child -->
-        <div class="bg-body-tertiary text-center p-2">
-            <p>© 2024 AcheteUnJeu.com. Tous droits réservés.</p>
-        </div>
+        <!-- include footer -->
+        <?php include("./includes/footer.php") ?>
     </div>
 
     <!-- bootstrap js link-->
