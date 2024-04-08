@@ -47,7 +47,7 @@ include('../functions/common_function.php');
                     <button><a href="index.php?view_categories" class="nav-link text-light bg-info my-1">View Categories</a></button>
                     <button><a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">Insert Brands</a></button>
                     <button><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">View Brands</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">All Orders</a></button>
+                    <button><a href="index.php?list_orders" class="nav-link text-light bg-info my-1">All Orders</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">All Payment</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">List users</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
@@ -100,6 +100,9 @@ include('../functions/common_function.php');
             }
             if(isset($_GET['delete_brands'])){
                 include('delete_brands.php');
+            }
+            if(isset($_GET['list_orders'])){
+                include('list_orders.php');
             }
             ?>
         </div>
