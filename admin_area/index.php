@@ -49,7 +49,7 @@ include('../functions/common_function.php');
                     <button><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">View Brands</a></button>
                     <button><a href="index.php?list_orders" class="nav-link text-light bg-info my-1">All Orders</a></button>
                     <button><a href="index.php?list_payments" class="nav-link text-light bg-info my-1">All Payment</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">List users</a></button>
+                    <button><a href="index.php?list_users" class="nav-link text-light bg-info my-1">List users</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
                 </div>
             </div>
@@ -106,6 +106,9 @@ include('../functions/common_function.php');
             }
             if(isset($_GET['list_payments'])){
                 include('list_payments.php');
+            }
+            if(isset($_GET['list_users'])){
+                include('list_users.php');
             }
             ?>
         </div>
