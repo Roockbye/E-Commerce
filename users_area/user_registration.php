@@ -70,14 +70,38 @@ if(isset($_POST['user_register'])){
     $user_ip=getIPAddress();
 
     //insert_query
+    $select_query="Select * from `user_table` where username='$user_username' or user_email='$user_email'";
+    $result=mysqli_query($con,$slect_query);
+    $rows_count=mysqli_num_rows($result);
+    if($rows_count>0){
+        echo "<script>alert('Username and Email already exist')</script>";
+    }else if($user_password!=$conf_user_password){
+        echo "<script>alert('Password do not match')</script>";
+    }
+
+    else{
     move_uploaded_file($user_image_tmp,"./user_images/$user_image");
     $insert_query="insert into `user_table` (username, user_email, user_password, user_image, user_ip, user_address, user_contact)
     values ('$username', '$user_email', '$user_password', '$user_image', '$user_ip', '$user_address', '$user_contact')";
     $sql_execute=mysqli_query($con,$insert_query);
-    if($sql_execute){
+    }
+    
+    /*if($sql_execute){
         echo "<script>alert('Data inserted successfully')</script>";
     }else{
         die(mysqli_error($con));
+    }*/
+
+    //selecting cart items
+    $select_cart_items="Select * from `cart_details` where ip_address='$user_ip'";
+    $result_cart=mysqli_query($con,$select_cart_items);
+    $rows_count=mysqli_num_rows($result_cart);
+    if($rows_count>0){
+        $_SESSION['username']=$user_username;
+        echo "<script>alert('You have items in your cart')</script>";
+        echo "<script>window.open('checkout.php','_self')</script>";
+    }else{
+        echo "<script>window.open('../index.php','_self')</script>";
     }
 }
 ?>
