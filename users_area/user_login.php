@@ -27,7 +27,7 @@ include('../functions/common_function.php');
                         <label for="user_password" class="form-label">Password</label>
                         <input type="password" id="user_password" class="form-control" placeholder="Enter your password" autocomplete="off" required="required" name="user_password"/>
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-4 pt-2">
                         <input type="submit" value="Login" class="bg-info py-2 px-3 border-0" name="user_login">
                         <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account ?<a href="user_registration.php"> Register</a></p>
                     </div>
@@ -48,7 +48,7 @@ if(isset($_POST['user_login'])){
     $result=mysqli_query($con,$select_query);
     $row_count=mysqli_num_rows($result);
     $row_data=mysqli_fetch_assoc($result);
-    //$user_ip=getIPAddress();
+    $user_ip=getIPAddress();
     if($row_count>0){
         if(password_verify($user_password,$row_data['user_password'])){
             echo "<script>alert('Login successful')</script>";
@@ -68,7 +68,7 @@ if(isset($_POST['user_login'])){
         $_SESSION['username']=$user_username;
         if(password_verify($user_password,$row_data['user_password'])){
             // echo "<script>alert('Login successful')</script>";
-            if($row_count==1 and $row_count_cart==0){
+            if($row_count==1 && $row_count_cart==0){
                 $_SESSION['username']=$user_username;
                 echo "<script>alert('Login successful')</script>";
                 echo "<script>window.open('profile.php','_self')</script>";

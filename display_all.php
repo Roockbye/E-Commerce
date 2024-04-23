@@ -35,13 +35,13 @@ include('./functions/common_function.php');
                             <a class="nav-link" href="display_all.php">Jeux</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./users_area/user_registration.php">S'enregister</a>
+                            <a class="nav-link" href="#">S'enregister</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contacts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Prix Total : <?php total_cart_price(); ?>€</a>
@@ -50,15 +50,11 @@ include('./functions/common_function.php');
                     <form class="d-flex" action="search_product.php" method="GET">
                         <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search" name="search_data">
                         <!-- <button class="btn btn-outline-success" type="submit">Rechercher</button> -->
-                        <input type="submit" value="Rechercher" class="btn btn-outline-success" name="search_data_product">
+                        <input type="submit" value="Rechercher"  class="btn btn-outline-success" name="search_data_product">
                     </form>
                 </div>
             </div>
         </nav>
-        <!-- calling cart function -->
-    <?php
-    cart();
-    ?>
         <!-- second child -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
@@ -81,11 +77,9 @@ include('./functions/common_function.php');
                 <!-- products -->
                 <div class="row">
     <?php
-    getproducts();
+    get_all_products();
     get_unique_categories();
     get_unique_brands();
-    // $ip = getIPAddress();
-    // echo 'User Real IP Address - '.$ip;
     ?>
                 </div>
             </div>
