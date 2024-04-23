@@ -1,3 +1,8 @@
+<?php
+include('../includes/connect.php');
+include('../functions/common_function.php');
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -48,8 +53,8 @@
                     </div>
                     <!-- mobile -->
                     <div class="form-outline mb-4">
-                        <label for="user_mobile" class="form-label">Numéro de téléphone</label>
-                        <input type="text" id="user_mobile" class="form-control" placeholder="Entrez votre numéro de téléphone" name="user_mobile" autocomplete="off" required />
+                        <label for="user_contact" class="form-label">Numéro de téléphone</label>
+                        <input type="text" id="user_contact" class="form-control" placeholder="Entrez votre numéro de téléphone" name="user_contact" autocomplete="off" required />
                     </div>
 
                     <div class="mt-4 pt-2">
@@ -69,6 +74,7 @@ if (isset($_POST['user_register'])) {
     $user_username = $_POST['user_username'];
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
+    $hash_password = password_hash($user_password, PASSWORD_DEFAULT);
     $conf_user_password = $_POST['conf_user_password'];
     $user_address = $_POST['user_address'];
     $user_contact = $_POST['user_contact'];
@@ -76,35 +82,30 @@ if (isset($_POST['user_register'])) {
     $user_image_tmp = $_FILES['user_image']['tmp_name'];
     $user_ip = getIPAddress();
 
-    //insert_query
+    //select query
     $select_query = "SELECT * FROM user_table WHERE username='$user_username' OR user_email='$user_email'";
-    $result = mysqli_query($con, $slect_query);
-
+    $result = mysqli_query($con, $select_query);
     $rows_count = mysqli_num_rows($result);
+
     if ($rows_count > 0) {
-        echo "<script>alert('Username and Email already exist')</script>";
+        echo "<script>alert('Le nom d'utilisateur et l'email existent déjà')</script>";
     } else if ($user_password != $conf_user_password) {
-        echo "<script>alert('Password do not match')</script>";
+        echo "<script>alert('Le mot de passe ne correspond pas')</script>";
     } else {
+    //insert_query
         move_uploaded_file($user_image_tmp, "./user_images/$user_image");
-        $insert_query = "INSERT INTO user_table (username, user_email, user_password, user_image, user_ip, user_address, user_contact) VALUE ('$username', '$user_email', '$user_password', '$user_image', '$user_ip', '$user_address', '$user_contact')";
+        $insert_query = "INSERT INTO user_table (username, user_email, user_password, user_image, user_ip, user_address, user_mobile) VALUES ('$user_username', '$user_email', '$hash_password', '$user_image', '$user_ip', '$user_address', '$user_contact')";
         $sql_execute = mysqli_query($con, $insert_query);
     }
-
-    /*if($sql_execute){
-        echo "<script>alert('Data inserted successfully')</script>";
-    }else{
-        die(mysqli_error($con));
-    }*/
 
     //selecting cart items
     $select_cart_items = "SELECT * FROM cart_details WHERE ip_address='$user_ip'";
     $result_cart = mysqli_query($con, $select_cart_items);
-
     $rows_count = mysqli_num_rows($result_cart);
+    
     if ($rows_count > 0) {
         $_SESSION['username'] = $user_username;
-        echo "<script>alert('You have items in your cart')</script>";
+        echo "<script>alert('Vous avez des articles dans votre panier')</script>";
         echo "<script>window.open('checkout.php','_self')</script>";
     } else {
         echo "<script>window.open('../index.php','_self')</script>";
