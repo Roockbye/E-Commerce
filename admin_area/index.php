@@ -1,7 +1,7 @@
 <?php
 include('../includes/connect.php');
 include('../functions/common_function.php');
-
+session_start();
 ?>
 
 
@@ -19,20 +19,55 @@ include('../functions/common_function.php');
     <div class="container-fluid p-0 nn">
         <nav class="navbar-expand-lg navbar-light bg-info">
             <div class="container-fluid">
-                <img src="../static/images/logo.jpg" alt="" class="logo">
-                <nav class="navbar navbar-expand-lg">
-                    <ul class="navbar-nav">
+                <img src="../images/logo.png" alt="" class="logo">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a href="" class="nav-link">Welcome guest</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./admin_registration.php">S'enregister</a>
+                        </li>
                         </li>
                     </ul>
-                </nav>
             </div>
         </nav>
 
         <div class="bg-light">
             <h3 class="text-center p-2">Manage Details</h3>
         </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+            <ul class="navbar-nav me-auto">
+    <?php
+        if(!isset($_SESSION['username'])){
+            echo "
+            <li class='nav-item'>
+            <a class='nav-link' href='#'>Invité</a>
+            </li>";
+        } else {
+            echo "
+            <li class='nav-item'>
+            <a class='nav-link' href='#'>Bienvenue ".$_SESSION['username']."</a>
+            </li>";
+        }
+
+        if(!isset($_SESSION['username'])){
+            echo "
+            <li class='nav-item'>
+            <a class='nav-link' href='./admin_login.php'>Se connecter</a>
+            </li>";
+        } else {
+            echo "
+            <li class='nav-item'>
+            <a class='nav-link' href='./logout.php'>Déconnexion</a>
+            </li>";
+        }
+    ?>
+            </ul>
+        </nav>
+
+        <!-- third child -->
 
         <div class="row">
             <div class="col-md-12 bg-secondary p-1 d-flex align-items-center">

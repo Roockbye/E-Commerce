@@ -18,14 +18,14 @@ if(isset($_POST['insert_product'])){
     $temp_image2=$_FILES['product_image2']['tmp_name'];
     $temp_image3=$_FILES['product_image3']['tmp_name'];
     //checking empty condition
-    if ($product_tile=='' or
-    $product_description=='' or
-    $product_keywords=='' or
-    $product_category=='' or
-    $product_brands=='' or
-    $product_image1=='' or
-    $product_image2=='' or
-    $product_image3=='' or
+    if ($product_tile=='' ||
+    $product_description=='' ||
+    $product_keywords=='' ||
+    $product_category=='' ||
+    $product_brands=='' ||
+    $product_image1=='' ||
+    $product_image2=='' ||
+    $product_image3=='' ||
     $product_price==''){
         echo "<script>alert('Veuillez remplir tous les champs du formulaire')</script>";
         exit();

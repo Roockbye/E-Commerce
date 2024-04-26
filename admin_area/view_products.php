@@ -36,7 +36,7 @@
             <tr class='text-center'>
             <td><?php   echo $number;?></td>
             <td><?php   echo $product_title;?></td>
-            <td><img src='./product_images/<?php   echo $product_image1;?>' class='product_img'</td>
+            <td><img src='./product_images/<?php   echo $product_image1;?>' class='product_img'/></td>
             <td><?php   echo $product_price;?>/-</td>
             <td><?php
             $get_count="Select * from `orders_pending` where product_id=$product_id";
