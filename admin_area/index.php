@@ -25,10 +25,7 @@ session_start();
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./admin_registration.php">S'enregister</a>
-                        </li>
+                        <li class="nav-item">                      
                         </li>
                     </ul>
             </div>
@@ -43,12 +40,12 @@ session_start();
         if(!isset($_SESSION['username'])){
             echo "
             <li class='nav-item'>
-            <a class='nav-link' href='#'>Invité</a>
+            <a class='nav-link' href='./admin_registration.php'>S'enregister</a>
             </li>";
         } else {
             echo "
             <li class='nav-item'>
-            <a class='nav-link' href='#'>Bienvenue ".$_SESSION['username']."</a>
+            
             </li>";
         }
 
@@ -73,7 +70,17 @@ session_start();
             <div class="col-md-12 bg-secondary p-1 d-flex align-items-center">
                 <div class="p-3">
                     <a href="#"><img src="../static/images/logo.jpg" alt="" class="admin_image"></a>
-                    <p class="text-light text-center">Admin Name</p>
+                    <p class="text-light text-center"><?php if(!isset($_SESSION['username'])){
+            echo "
+            <li class='nav-item'>
+            <a class='nav-link' href='#'>Invité</a>
+            </li>";
+        } else {
+            echo "
+            <li class='nav-item'>
+            <a class='nav-link' href='#'>Bienvenue ".$_SESSION['username']."</a>
+            </li>";
+        } ?></p>
                 </div>
                 <div class="button text-center">
                     <button class="my-3"><a href="insert_product.php" class="nav-link text-light bg-info my-1">Insert Products</a></button>

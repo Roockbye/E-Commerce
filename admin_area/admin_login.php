@@ -1,7 +1,30 @@
 <?php
-include('./includes/connect.php');
-include('./functions/common_function.php');
-@session_start();
+session_start();
+include('../includes/connect.php');
+include('../functions/common_function.php');
+
+if (isset($_POST['admin_login'])) {
+    $admin_username = $_POST['admin_username'];
+    $admin_password = $_POST['admin_password'];
+
+    $select_query = "SELECT * FROM admin_table WHERE admin_name = '$admin_username'";
+    $result = mysqli_query($con, $select_query);
+    $row_count = mysqli_num_rows($result);
+    $row_data = mysqli_fetch_assoc($result);
+
+    if ($row_count > 0) {
+        if (password_verify($admin_password, $row_data['admin_password'])) {
+            $_SESSION['username'] = $admin_username;
+            echo "<script>alert('Connexion réussie')</script>";
+            header("Location: index.php");
+            exit;
+        } else {
+            echo "<script>alert('Informations d'identification invalides')</script>";
+        }
+    } else {
+        echo "<script>alert('Informations d'identification invalides')</script>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,33 +64,3 @@ include('./functions/common_function.php');
     
 </body>
 </html>
-
-<?php
-if (isset($_POST['admin_login'])) {
-    $admin_username = $_POST['admin_username'];
-    $admin_password = $_POST['admin_password'];
-
-    $select_query = "SELECT * FROM admin_table WHERE admin_name = '$admin_username'";
-    $result = mysqli_query($con, $select_query);
-    $row_count = mysqli_num_rows($result);
-    $row_data = mysqli_fetch_assoc($result);
-
-
-    if ($row_count > 0) {
-        $_SESSION['username'] = $admin_username;
-        if (password_verify($admin_password, $row_data['admin_password'])) {
-            if ($row_count == 1) {
-                $_SESSION['username'] = $admin_username;
-                echo "<script>alert('Connexion réussie')</script>";
-            } else {
-                $_SESSION['username'] = $admin_username;
-                echo "<script>alert('Connexion réussie')</script>";
-            }
-        } else {
-            echo "<script>alert('Informations d'identification invalides')</script>";
-        }
-    } else {
-        echo "<script>alert('Informations d'identification invalides')</script>";
-    }
-}
-?>
