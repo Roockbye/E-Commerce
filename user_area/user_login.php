@@ -11,33 +11,40 @@ include('../functions/common_function.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AcheteUnJeu.com</title>
-    <!-- bootstrap CSS link-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="../static/css/admin_login.css" />
 </head>
 
 <body>
-    <div class="container-fluid my-3">
-        <h2 class="text-center">Connexion au compte utilisateur</h2>
-        <div class="row d-flex align-items-center justify-content-center">
-            <div class="col-lg-12 col-xl-6">
-                <form action="" method="post">
-                    <div class="form-outline mb-4">
-                        <label for="user_username" class="form-label">Pseudo</label>
-                        <input type="text" id="user_username" class="form-control" placeholder="Entrez votre nom d'utilisateur" autocomplete="off" required name="user_username" />
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-2"></div>
+    <div class="col-lg-6 col-md-8 login-box">
+      <div class="col-lg-12 login-key">
+        <i class="fa fa-key" aria-hidden="true"></i>
+      </div>
+      <div class="col-lg-12 login-title">
+      Connexion au compte utilisateur
+      </div>
+
+      <div class="col-lg-12 login-form">
+        <form method="POST" action="">
+          <div class="form-group">
+                <label for="user_username" class="form-control-label">Pseudo</label>
+                <input type="text" id="user_username" class="form-control" autocomplete="off" name="user_username" required/>
                     </div>
-                    <div class="form-outline mb-4">
-                        <label for="user_password" class="form-label">Mot de passe</label>
-                        <input type="password" id="user_password" class="form-control" placeholder="Entrez votre mot de passe" autocomplete="off" required name="user_password" />
+                    <div class="form-group">
+                        <label for="user_password" class="form-control-label">Mot de passe</label>
+                        <input type="password" id="user_password" class="form-control" autocomplete="off" name="user_password" required/>
                     </div>
-                    <div class="mb-4">
-                        <input type="submit" class="btn btn-outline-success" value="Se connecter" name="user_login">
-                        <p class="small fw-bold mt-2 pt-1 mb-0">Pas encore de compte chez nous ? <a href="user_registration.php"> S'inscrire</a></p>
+                    <div class="col-lg-12 login-btm login-button">
+                        <input type="submit" class="btn btn-outline-primary" value="Se connecter" name="user_login">
+                        <p class="register-link">Pas encore de compte chez nous ? <a href="user_registration.php"> S'inscrire</a></p>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+</div>
 </body>
 
 </html>

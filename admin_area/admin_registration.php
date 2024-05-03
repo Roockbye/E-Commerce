@@ -49,7 +49,6 @@ include('../functions/common_function.php');
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>
 
