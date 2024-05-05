@@ -18,8 +18,11 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- css file -->
     <link rel="stylesheet" href="../style.css" />
-    <style>body { overflow-x: hidden; } .profile_img { width: 90%; object-fit: contain; margin: auto; display: block;}</style>
-
+    <style>
+    body { overflow-x: hidden; } 
+    .profile_img { width: 90%; object-fit: contain; margin: auto; display: block;}
+    .edit_img { width: 100px; height: 100px; object-fit: contain; }
+    </style>
 </head>
 
 <body>
@@ -114,26 +117,50 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#"><h4>Mon profil</h4></a>
                     </li>
-                    <li>
-                        <img src="../images/profil.jpg" class="profile_img my-4" alt="">
+    <?php
+        $username = $_SESSION['username'];
+        $user_image = "SELECT * FROM user_table WHERE username='$username'";
+        $user_image = mysqli_query($con, $user_image); 
+        $row_image = mysqli_fetch_array($user_image);
+        $user_image = $row_image['user_image'];
+        echo "
+        <li>
+            <img src='./user_images/$user_image' class='profile_img my-4' alt=''>
+        </li>
+        ";
+    ?>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="profile.php">Commandes en attente</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Commandes en attente</a>
+                        <a class="nav-link active" aria-current="page" href="profile.php?edit_account">Modifier mon compte</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Modifier mon compte</a>
+                        <a class="nav-link active" aria-current="page" href="profile.php?my_orders">Mes commandes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Mes commandes</a>
+                        <a class="nav-link active" aria-current="page" href="profile.php?delete_account">Supprimer mon compte</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Supprimer mon compte</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Déconnexion</a>
+                        <a class="nav-link active" aria-current="page" href="logout.php">Déconnexion</a>
                     </li>
                 </ul>
-            <div class="col-md-10">
+            </div>
+
+            <div class="col-md-10 text-center">
+        <?php 
+        get_user_order_details(); 
+        if(isset($_GET['edit_account'])){
+            include('edit_account.php');
+        }
+        if(isset($_GET['my_orders'])){
+            include('user_orders.php');
+        }
+        if(isset($_GET['delete_account'])){
+            include('delete_account.php');
+        }
+        ?>
             </div>
         </div>
 

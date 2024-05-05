@@ -43,9 +43,21 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link" href="display_all.php">Jeux</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./user_area/user_registration.php">S'enregister</a>
-                        </li>
+    <?php
+    if(isset($_SESSION['username'])){
+        echo "
+        <li class='nav-item'>
+            <a class='nav-link' href='./user_area/profile.php'>Mon compte</a>
+        </li>
+        ";
+    } else {
+        echo "
+        <li class='nav-item'>
+            <a class='nav-link' href='./user_area/user_registration.php'>S'enregister</a>
+        </li>
+        ";
+    }
+    ?>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contacts</a>
                         </li>
@@ -82,7 +94,7 @@ session_start();
         } else {
             echo "
             <li class='nav-item'>
-            <a class='nav-link' href='#'>Bienvenue ".$_SESSION['username']."</a>
+            <a class='nav-link' href='./user_area/profile.php'>Bienvenue ".$_SESSION['username']."</a>
             </li>";
         }
 
