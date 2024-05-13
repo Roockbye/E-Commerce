@@ -6,7 +6,7 @@ if(isset($_GET['edit_category'])){
     $get_categories="Select * from `categories` where category_id=$edit_category";
     $result=mysqli_query($con,$get_categories);
     $row=mysqli_fetch_assoc($result);
-    $category_title=$row['$category_title'];
+    $category_title=$row['category_title'];
     //echo $category_title;
 }
 

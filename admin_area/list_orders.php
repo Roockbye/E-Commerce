@@ -1,4 +1,4 @@
-<h3 class="text-center text-success">All orders</h3>
+<h3 class="text-center text-success text-black">All orders</h3>
 <table class="table table-bordered mt-5">
     <thead class="bg-info">
 

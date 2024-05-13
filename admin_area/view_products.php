@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h3 class="text-center text-success">All products</h3>
+    <h3 class="text-center text-success text-black">All products</h3>
     <table class="table table-bordered mt-5">
         <thead class="bg-info">
             <tr>
@@ -36,7 +36,7 @@
             <tr class='text-center'>
             <td><?php   echo $number;?></td>
             <td><?php   echo $product_title;?></td>
-            <td><img src='./product_images/<?php   echo $product_image1;?>' class='product_img'/></td>
+            <td><img src='./product_images/<?php   echo $product_image1;?>' width='150' class='product_img'/></td>
             <td><?php   echo $product_price;?>/-</td>
             <td><?php
             $get_count="Select * from `orders_pending` where product_id=$product_id";

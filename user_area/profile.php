@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 <!-- connect file -->
-=======
->>>>>>> ab0d809f3fbe9b97028e6ec63f2bbbf7d8c43a5d
 <?php
 include('../includes/connect.php');
 include('../functions/common_function.php');
 session_start();
-<<<<<<< HEAD
 ?>
 
 <!DOCTYPE html>
@@ -178,16 +174,3 @@ session_start();
 </body>
 
 </html>
-=======
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome <?php echo $_SESSION['username']?> </title>
-</head>
-</html>
->>>>>>> ab0d809f3fbe9b97028e6ec63f2bbbf7d8c43a5d

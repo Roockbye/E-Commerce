@@ -6,7 +6,7 @@ if(isset($_GET['edit_brands'])){
     $get_brands="Select * from `brands` where brand_id=$edit_brand";
     $result=mysqli_query($con,$get_brands);
     $row=mysqli_fetch_assoc($result);
-    $brand_title=$row['$brand_title'];
+    $brand_title=$row['brand_title'];
     //echo $brand_title;
 }
 
@@ -17,7 +17,7 @@ if(isset($_POST['edit_brand'])){
     $result_brand=mysqli_query($con,$update_query);
     if($result_brand){
         echo "<script>alert('Brand is been updated successfully')</script>";
-        echo "<script>window.open('./index.php?view_brands','_self'</script>";
+        echo "<script>window.open('./index.php?view_brands','_self')</script>";
     }
 }
 
