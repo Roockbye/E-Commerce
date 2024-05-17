@@ -69,21 +69,7 @@ if(isset($_POST['insert_product'])){
     }
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insert Product - Admin Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../style.css">
-</head>
-<body>
-    <div class="container mt-3">
-        <h1 class="text-center">Insert Products / Jeux</h1>
-
+        <h1 class="text-center text-black">Insert Products / Jeux</h1>
         <!-- form -->
         <form action="" method="post" enctype="multipart/form-data">
             <!-- title -->
@@ -165,6 +151,5 @@ if(isset($_POST['insert_product'])){
                 <input type="submit" name="insert_product" class="btn btn-outline-success mb-2 px-2" value="Ajouter produit">
             </div>
         </form>
-    </div>
 </body>
 </html>
