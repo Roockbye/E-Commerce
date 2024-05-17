@@ -4,60 +4,62 @@ include('../functions/common_function.php');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AcheteUnJeu.com</title>
-    <link rel="stylesheet" href="../static/css/admin_login.css" />
+    <!-- bootstrap CSS link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css" /> -->
 </head>
 
 <body>
-<div class="container">
-    <div class="col-lg-3 col-md-2"></div>
-    <div class="col-lg-6 col-md-8 login-box">
-      <div class="col-lg-12 login-key">
-        <i class="fa fa-key" aria-hidden="true"></i>
-      </div>
-      <div class="col-lg-12 login-title">
-        Création du compte utilisateur
-      </div>
+    <div class="container-fluid my-3">
+        <h2 class="text-center">Création du compte utilisateur</h2>
+        <div class="row d-flex align-item-center justify-content-center">
+            <div class="col-lg-12 col-xl-6">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <!-- username -->
+                    <div class="form-outline mb-4">
+                        <label for="user_username" class="form-label">Pseudo</label>
+                        <input type="text" id="user_username" class="form-control" placeholder="Entrez votre nom d'utilisateur" name="user_username" autocomplete="off" required />
+                    </div>
+                    <!-- email -->
+                    <div class="form-outline mb-4">
+                        <label for="user_email" class="form-label">Email</label>
+                        <input type="email" id="user_email" class="form-control" placeholder="Entrez votre email" name="user_email" autocomplete="off" required />
+                    </div>
+                    <!-- photo de profil -->
+                    <div class="form-outline mb-4">
+                        <label for="user_image" class="form-label">Photo de profil</label>
+                        <input type="file" id="user_image" class="form-control" name="user_image" />
+                    </div>
+                    <!-- password -->
+                    <div class="form-outline mb-4">
+                        <label for="user_password" class="form-label">Mot de passe</label>
+                        <input type="password" id="user_password" class="form-control" placeholder="Choisissez un mot de passe" name="user_password" autocomplete="off" required />
+                    </div>
+                    <!-- confirm password -->
+                    <div class="form-outline mb-4">
+                        <label for="conf_user_password" class="form-label">Confirmation du mot de passe</label>
+                        <input type="password" id="conf_user_password" class="form-control" placeholder="Confirmez votre mot de passe" name="conf_user_password" autocomplete="off" required />
+                    </div>
+                    <!-- address -->
+                    <div class="form-outline mb-4">
+                        <label for="user_address" class="form-label">Adresse</label>
+                        <input type="text" id="user_address" class="form-control" placeholder="Entrez votre adresse postale" name="user_address" autocomplete="off" required />
+                    </div>
+                    <!-- mobile -->
+                    <div class="form-outline mb-4">
+                        <label for="user_contact" class="form-label">Numéro de téléphone</label>
+                        <input type="text" id="user_contact" class="form-control" placeholder="Entrez votre numéro de téléphone" name="user_contact" autocomplete="off" required />
+                    </div>
 
-      <div class="col-lg-12 login-form">
-            <form action="" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="user_username" class="form-control-label">Pseudo</label>
-                <input type="text" id="user_username" class="form-control" name="user_username" autocomplete="off" required />
-            </div>
-            <div class="form-group">
-                <label for="user_email" class="form-control-label">Email</label>
-                <input type="email" id="user_email" class="form-control" name="user_email" autocomplete="off" required />
-            </div>
-            <div class="form-group">
-                <label for="user_image" class="form-control-label">Photo de profil</label>
-                <input type="file" id="user_image" class="form-control" name="user_image" />
-            </div>
-            <div class="form-group">
-                <label for="user_password" class="form-control-label">Mot de passe</label>
-                <input type="password" id="user_password" class="form-control" name="user_password" autocomplete="off" required />
-            </div>
-            <div class="form-group">
-                <label for="conf_user_password" class="form-control-label">Confirmation du mot de passe</label>
-                <input type="password" id="conf_user_password" class="form-control" name="conf_user_password" autocomplete="off" required />
-            </div>
-            <div class="form-group">
-                <label for="user_address" class="form-control-label">Adresse</label>
-                <input type="text" id="user_address" class="form-control" name="user_address" autocomplete="off" required />
-            </div>
-            <div class="form-group">
-                <label for="user_contact" class="form-control-label">Numéro de téléphone</label>
-                <input type="text" id="user_contact" class="form-control" name="user_contact" autocomplete="off" required />
-            </div>
-
-                    <div class="col-lg-12 login-btm login-button">
-                        <input type="submit" class="btn btn-outline-primary" value="S'inscrire" name="user_register">
-                        <p class="register-link">Vous avez déjà un compte ? <a href="user_login.php"> Se connecter</a></p>
+                    <div class="mt-4 pt-2">
+                        <input type="submit" class="btn btn-outline-success" value="S'inscrire" name="user_register">
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Vous avez déjà un compte ? <a href="user_login.php"> Se connecter</a></p>
                     </div>
                 </form>
             </div>

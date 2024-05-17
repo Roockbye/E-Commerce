@@ -26,85 +26,75 @@ session_start();
     <div class="container-fluid p-0">
 
         <!-- first child -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <img src="./images/logo.png" alt="" class="logo">
-
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.php">
+                    <img src="./images/logo.png" alt="Logo" class="logo">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.php">Jeux</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Jeux</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./user_area/user_registration.php">S'enregister</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contacts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
+                            <a class="nav-link" href="cart.php">
+                                <i class="fas fa-shopping-cart"></i>
+                                <sup><?php cart_item(); ?></sup>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Prix Total : <?php total_cart_price(); ?>€</a>
                         </li>
                     </ul>
-                    <form class="d-flex" action="" method="GET">
+                    <form class="d-flex" action="search_product.php" method="GET">
                         <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search" name="search_data">
-                        <!-- <button class="btn btn-outline-success" type="submit">Rechercher</button> -->
-                        <input type="submit" value="Rechercher"  class="btn btn-outline-success" name="search_data_product">
+                        <button class="btn btn-outline-success" type="submit" name="search_data_product">Rechercher</button>
                     </form>
+
+                    <ul class="navbar-nav">
+                        <?php if (!isset($_SESSION['username'])) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Invité</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./user_area/user_registration.php">S'enregistrer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./user_area/user_login.php">Se connecter</a>
+                            </li>
+                        <?php else : ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./user_area/profile.php">
+                                    <i class="fas fa-user-circle me-1"></i> Bienvenue <?php echo $_SESSION['username']; ?>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./user_area/logout.php">Déconnexion</a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+
                 </div>
             </div>
         </nav>
 
         <!-- calling cart function -->
-    <?php
-    cart();
-    ?>
-
-        <!-- second child -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-            <ul class="navbar-nav me-auto">
-    <?php
-        if(!isset($_SESSION['username'])){
-            echo "
-            <li class='nav-item'>
-            <a class='nav-link' href='#'>Invité</a>
-            </li>";
-        } else {
-            echo "
-            <li class='nav-item'>
-            <a class='nav-link' href='#'>Bienvenue ".$_SESSION['username']."</a>
-            </li>";
-        }
-
-        if(!isset($_SESSION['username'])){
-            echo "
-            <li class='nav-item'>
-            <a class='nav-link' href='./user_area/user_login.php'>Se connecter</a>
-            </li>";
-        } else {
-            echo "
-            <li class='nav-item'>
-            <a class='nav-link' href='./user_area/logout.php'>Déconnexion</a>
-            </li>";
-        }
-    ?>
-            </ul>
-        </nav>
+        <?php
+        cart();
+        ?>
 
         <!-- third child -->
-        <nav class="bg-light">
-            <h3 class="text-center">MAGASIN</h3>
-            <p class="text-center">POPULAIRES ET RECOMMANDÉS</p>
-        </nav>
+        <div class="container">
+            <nav class="p-4 mb-4">
+                <div class="text-center">
+                    <h3 class="fw-bold text-uppercase mb-3">Boutique en ligne</h3>
+                    <p class="lead mb-0">Découvrez nos produits populaires et recommandés</p>
+                </div>
+            </nav>
+        </div>
 
         <!-- fourth child -->
         <div class="row px-1">

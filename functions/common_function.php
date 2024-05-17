@@ -334,7 +334,7 @@ function cart_item(){
         $count_cart_items = mysqli_num_rows($result_query);
         } else {
             global $con;
-            $get_ip_add = getIPAddress();
+            $get_ip_add = getIPAddress();  
             $select_query="SELECT * FROM cart_details WHERE ip_address='$get_ip_add'";
             $result_query = mysqli_query($con, $select_query);
             $count_cart_items = mysqli_num_rows($result_query);
