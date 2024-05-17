@@ -32,7 +32,7 @@ session_start();
         <!-- first child -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="../index.php">
                     <img src="../images/logo.png" alt="Logo" class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@ session_start();
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Jeux</a>
+                            <a class="nav-link active" aria-current="page" href="../index.php">Jeux</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cart.php">
@@ -76,7 +76,7 @@ session_start();
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./user_area/logout.php">Déconnexion</a>
+                                <a class="nav-link" href="logout.php">Déconnexion</a>
                             </li>
                         <?php endif; ?>
                     </ul>
