@@ -1,13 +1,11 @@
 <?php
 include('../includes/connect.php');
-
 if(isset($_POST['insert_cat'])){
     $category_title=$_POST['cat_title'];
     //select data from database
     $select_query="Select * from `categories` where category_title='$category_title'";
     $result_select=mysqli_query($con,$select_query);
     $number=mysqli_num_rows($result_select);
-
     if($number>0){
         echo "<script>alert('This category is present inside the database')</script>";
     }
@@ -19,7 +17,6 @@ if(isset($_POST['insert_cat'])){
         echo "<script>alert('Category has been inserted successfully')</script>";
     }
 }}
-
 ?>
 <h2 class="text-center text-black">Insert Categories</h2>
 <form action="" method="post" class="mb-2">

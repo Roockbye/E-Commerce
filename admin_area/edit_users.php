@@ -12,7 +12,6 @@ if(isset($_GET['edit_users'])){
     $user_address = $row['user_address'];
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +57,6 @@ if(isset($_GET['edit_users'])){
     </div>
 </body>
 </html>
-
 <?php
 if(isset($_POST['edit_user'])){
     $username=$_POST['username'];
@@ -68,13 +66,11 @@ if(isset($_POST['edit_user'])){
     $user_address=$_POST['user_address'];
     $user_image =$_FILES['user_image']['name'];
     $temp_image=$_FILES['user_image']['tmp_name'];
-
     if(!empty($_FILES['user_image']['name'])){
         $user_image=$_FILES['user_image']['name'];
         $temp_image=$_FILES['user_image']['tmp_name'];
         move_uploaded_file($temp_image,"./user_area/user_images/$user_image");
     }
-
     //query to update users
     $update_user="update `user_table` set username='$username', user_email='$user_email',
     user_password='$user_password', user_image='$user_image', user_mobile='$user_mobile', user_address='$user_address' where user_id=$edit_user";

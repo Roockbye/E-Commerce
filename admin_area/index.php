@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../includes/connect.php');
 include('../functions/common_function.php');
 ?>
@@ -58,22 +59,6 @@ include('../functions/common_function.php');
             <h3 class="text-center p-3">Tableau de Bord Administrateur</h3>
         </div>
 
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-md-12 bg-secondary p-3 text-center text-white">
-                    <img src="../static/images/logo.jpg" alt="" class="admin-image">
-                    <p class="mb-0">
-                        <?php 
-                            if(!isset($_SESSION['username'])){
-                                echo "Invité";
-                            } else {
-                                echo "Bienvenue ".$_SESSION['username'];
-                            }
-                        ?>
-                    </p>
-                </div>
-            </div>
-
             <div class="row mt-4">
                 <div class="col-md-12 text-center">
                     <div class="button">
@@ -84,7 +69,6 @@ include('../functions/common_function.php');
                         <a href="index.php?insert_brand" class="btn btn-info mr-2">Insérer une Marque</a>
                         <a href="index.php?view_brands" class="btn btn-info mr-2">Voir les Marques</a>
                         <a href="index.php?list_orders" class="btn btn-info mr-2">Toutes les Commandes</a>
-                        <a href="index.php?list_payments" class="btn btn-info mr-2">Tous les Paiements</a>
                         <a href="index.php?list_users" class="btn btn-info mr-2">Liste des Utilisateurs</a>
                     </div>
                 </div>
@@ -136,9 +120,6 @@ include('../functions/common_function.php');
                 }
                 if(isset($_GET['list_orders'])){
                     include('list_orders.php');
-                }
-                if(isset($_GET['list_payments'])){
-                    include('list_payments.php');
                 }
                 if(isset($_GET['list_users'])){
                     include('list_users.php');
