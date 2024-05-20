@@ -7,7 +7,7 @@ function getproducts()
 
     if (!isset($_GET['category'])) {
         if (!isset($_GET['brand'])) {
-            $select_query = "SELECT * FROM products ORDER BY product_title LIMIT 0,3";
+            $select_query = "SELECT * FROM products ORDER BY product_title LIMIT 0,12";
             $result_query = mysqli_query($con, $select_query);
             // $row=mysqli_fetch_assoc($result_query);
             // echo $row['product_title'];
