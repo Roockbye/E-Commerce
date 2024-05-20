@@ -100,6 +100,9 @@ include('../functions/common_function.php');
                 if(isset($_GET['delete_product'])){
                     include('delete_product.php');
                 }
+                if(isset($_GET['delete_orders'])){
+                    include('delete_orders.php');
+                }
                 if(isset($_GET['view_categories'])){
                     include('view_categories.php');
                 }
