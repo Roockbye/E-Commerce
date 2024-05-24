@@ -137,9 +137,9 @@ Voici des captures d'écran des tables de notre bdd (mystore)
 Pour déployer ce projet :
 
 ```bash
-  git clone https://ytrack.learn.ynov.com/git/lgaelle/Projet-dev.git
+  git clone https://github.com/Roockbye/E-Commerce.git
 ```
-Utiliser Laragon ou XAMPP pour telecharger notre base de données ou la recréer
+Utiliser Laragon ou XAMPP pour telecharger notre base de données ou la recréer (bdd présente dans les fichiers)
 Puis accéder au site directement depuis le navigateur : http://localhost/Projet-dev/index.php
 
 ## Authors
